@@ -1,6 +1,6 @@
 {
   "name": "@unformal/cli",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "CLI for Unformal — create and manage AI-powered conversational forms",
   "type": "module",
   "bin": {
@@ -28,7 +28,7 @@
   "homepage": "https://unformal.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Spark-Collective/unformal-skills.git",
+    "url": "https://github.com/Unformalai/unformal-skills.git",
     "directory": "cli"
   },
   "keywords": ["unformal", "api", "cli", "forms", "conversations", "ai", "survey"]

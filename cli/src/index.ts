@@ -517,10 +517,10 @@ program
     if (opts.tone) body.tone = opts.tone;
     if (opts.persona) body.persona = opts.persona;
     if (opts.context) body.context = opts.context;
-    if (opts.research) body.research = true;
-    if (opts.insights) body.insights = true;
+    if (opts.research) body.allowResearch = true;
+    if (opts.insights) body.showInsights = true;
     if (opts.maxQuestions) body.maxQuestions = opts.maxQuestions;
-    if (opts.webhook) body.webhook = opts.webhook;
+    if (opts.webhook) body.webhookUrl = opts.webhook;
     if (opts.welcomeTitle) body.welcomeTitle = opts.welcomeTitle;
     if (opts.welcomeDescription) body.welcomeDescription = opts.welcomeDescription;
     if (opts.fields) body.outputFields = parseFields(opts.fields);
@@ -606,10 +606,10 @@ program
     if (opts.tone) body.tone = opts.tone;
     if (opts.persona) body.persona = opts.persona;
     if (opts.context) body.context = opts.context;
-    if (opts.research !== undefined) body.research = opts.research;
-    if (opts.insights !== undefined) body.insights = opts.insights;
+    if (opts.research !== undefined) body.allowResearch = opts.research;
+    if (opts.insights !== undefined) body.showInsights = opts.insights;
     if (opts.maxQuestions) body.maxQuestions = opts.maxQuestions;
-    if (opts.webhook) body.webhook = opts.webhook;
+    if (opts.webhook) body.webhookUrl = opts.webhook;
     if (opts.welcomeTitle) body.welcomeTitle = opts.welcomeTitle;
     if (opts.welcomeDescription) body.welcomeDescription = opts.welcomeDescription;
     if (opts.fields) body.outputFields = parseFields(opts.fields);
