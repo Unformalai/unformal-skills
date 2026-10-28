@@ -2,6 +2,8 @@
 
 CLI for [Unformal](https://unformal.ai) — create and manage AI-powered conversational forms. Replace static forms with AI conversations that adapt to each respondent and extract structured data.
 
+Source reviewed 2026-10-28. Development and integration use `main`.
+
 ## Install
 
 ```bash
@@ -77,11 +79,13 @@ unformal analytics PULSE_ID                # Completion rate, duration, field co
 unformal usage                             # Credit balance + totals
 ```
 
-Every command supports `--json` for piping structured output to another agent.
+`signup`, `login`, `conversation`, `resonance`, and `analytics` support `--json`.
+`export` selects JSON or CSV with `--format`; other commands use their documented output.
+Use `unformal <command> --help` for the flags implemented by that command.
 
 ## API
 
-Everything the CLI does is available on the HTTP API. See [unformal.ai/SKILL.md](https://unformal.ai/SKILL.md) for the full reference including curl examples, response shapes, and the list of ui_hint types.
+Everything the CLI does is available on the HTTP API. See the versioned [`unformal-api/SKILL.md`](../unformal-api/SKILL.md) for curl examples, response shapes, and adaptive input types. Public API documentation is at [unformal.ai/docs/api](https://unformal.ai/docs/api).
 
 ## License
 

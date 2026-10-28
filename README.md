@@ -1,10 +1,31 @@
-# Unformal Agent Skills
+# Unformal CLI and Agent Skills
 
-Official [Agent Skills](https://agentskills.io) for [Unformal](https://unformal.ai) — the conversation-first input platform.
+Official CLI and [Agent Skills](https://agentskills.io) for [Unformal](https://unformal.ai), the conversation-first input platform.
+
+Source reviewed 2026-10-28. The integration branch is `main`. This repository contains creator-side automation; it does not implement an A2A or MCP respondent server.
 
 ## What is Unformal?
 
 Replace forms with AI-powered conversations. Create a Pulse, share a link, an AI agent has a real conversation with the respondent, you get structured insights back.
+
+## CLI
+
+The `cli/` package provides `@unformal/cli` (source package version 0.4.2). See
+[`cli/README.md`](cli/README.md) for installation and command examples. Source version is
+not a claim about the current npm registry release.
+
+Implemented commands cover signup and email verification, login, API-key setup, Pulse
+creation and updates, response/transcript reads, CSV/JSON export, Resonance, analytics,
+and credit usage. These call the public REST API; the CLI is not a second backend.
+
+For local development:
+
+```bash
+cd cli
+pnpm install --frozen-lockfile
+pnpm build
+UNFORMAL_NO_UPDATE_CHECK=1 node dist/index.js --help
+```
 
 ## Available Skills
 
@@ -46,7 +67,12 @@ curl -X POST "https://unformal.ai/api/v1/signup" \
   -H "Content-Type: application/json" \
   -d '{"email": "your@email.com"}'
 
-# Create a Pulse
+# Activate the returned key with the code received by email
+curl -X POST "https://unformal.ai/api/v1/verify" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "your@email.com", "code": "123456"}'
+
+# Create a Pulse using that verified key
 curl -X POST "https://unformal.ai/api/v1/pulses" \
   -H "Authorization: Bearer unf_YOUR_KEY" \
   -H "Content-Type: application/json" \
@@ -54,6 +80,9 @@ curl -X POST "https://unformal.ai/api/v1/pulses" \
 
 # → Returns shareable URL immediately
 ```
+
+The example code is a placeholder. Signup returns an inactive key; creation requires email
+verification. Keep the returned key private.
 
 ## Links
 
